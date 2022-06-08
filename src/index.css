@@ -12,6 +12,35 @@
   --Nice-blue: rgba(0, 153, 255, 1);
 }
 
+@keyframes fadeIn {
+  0% {
+    /* height: 0; */
+    opacity: 0;
+  }
+  25% {
+    /* height: 25%; */
+    opacity: 0.25;
+  }
+  50% {
+    /* height: 50%; */
+    opacity: 0.5;
+  }
+  75% {
+    /* height: 75%; */
+    opacity: 0.75;
+  }
+  100% {
+    /* height: 100%; */
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  transition: animation 1s ease-in;
+}
+
 body {
   min-width: 100vw;
   min-height: 100vh;
@@ -20,11 +49,6 @@ body {
   font-family: var(--Answers-Font-Style);
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* background: url("F:\Code\React Quiz App\my-quiz-app\public\Images\Blobs and waves/wave.svg"),
-    url("F:\Code\React Quiz App\my-quiz-app\public\Images\Blobs and waves/wave(1).svg");
-  background-repeat: no-repeat;
-  background-position: bottom, top; */
 }
 
 /* app.css */
@@ -34,19 +58,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .App {
   width: 90%;
   max-width: 550px;
-  /* min-height: 100vh; */
-  /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #f5f7fb; */
   color: #293264;
 
   background: url("F:\Code\React Quiz App\my-quiz-app\public\Images/first-page-blob-top.png"),
@@ -86,19 +107,18 @@ body {
   text-align: center;
 
   color: #f5f7fb;
+  margin-top: 1rem;
+  margin-bottom: -3rem;
 }
 
 /* Question Page  */
 .question-page-container {
-  margin: 1rem 0;
-  /* border: 1px solid red; */
+  margin: 4rem 0;
   width: 80%;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* text-align: left; */
 }
 
 /* Question */
@@ -122,14 +142,10 @@ body {
   margin-block: 0.5rem 1rem;
   display: flex;
   gap: 1rem;
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 .qa--answer-button {
   min-height: 21px;
   min-width: 66px;
-  /* left: 310px;
-  top: 70px; */
   border-radius: 8px;
 
   border: 0.79px solid #4d5b9e;
@@ -185,7 +201,6 @@ body {
 }
 
 .first-page--description {
-  /* border: 1px solid red; */
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
@@ -195,6 +210,26 @@ body {
 }
 
 .btn {
+  background: #4d5b9e;
+
+  /* text styles */
+  text-align: center;
+  /* text-color: */
+  color: #f5f7fb;
+
+  /* animation-name: fadeIn;
+  animation-duration: 1s; */
+  transition: all 0.2s ease-in;
+}
+
+.btn:hover {
+  background-color: rgbA(77, 91, 158, 0.8);
+  /* color: black; */
+  font-weight: bold;
+  transition: all 0.2s ease-in;
+}
+
+.first-page--button {
   /* button styles */
   height: 52px;
   width: 193px;
@@ -203,9 +238,6 @@ body {
   border-radius: 15px;
   border: none;
   margin-block: 1rem;
-
-  background: #4d5b9e;
-
   /* text styles */
   font-family: Inter;
   font-size: 16px;
@@ -213,14 +245,24 @@ body {
   line-height: 19px;
   letter-spacing: 0em;
   text-align: center;
-  /* text-color: */
-  color: #f5f7fb;
-}
-
-.first-page--button {
 }
 
 .second-page--button {
+  /* button styles */
+  height: 52px;
+  width: 193px;
+  left: 179px;
+  top: 314px;
+  border-radius: 15px;
+  border: none;
+  margin-block: 1rem;
+  /* text styles */
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
   /* position: relative; */
   padding: 0.4rem 1rem;
   height: auto;
@@ -228,10 +270,50 @@ body {
   margin-left: auto;
   margin-right: 1rem;
   font-size: 0.8rem;
-  /* position: absolute; */
-  /* top: 0;
-  left: 0; */
 }
 
-.first-page--button:hover {
+.loading {
+  margin: 2rem;
+  font-size: large;
+  color: var(--Answers-Font-Style);
+  background-color: #deebf8;
+}
+
+.score-placeholder {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  margin: 1rem;
+  margin-bottom: -3.2rem;
+  font-size: smaller;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: auto;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+  flex-direction: column;
+}
+
+.score {
+  font-size: large;
+  color: var(--Answers-Font-Style);
+  background-color: #cae9ff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  /* margin-right: auto; */
+
+  border: 0.79px solid #4d5b9e;
+}
+
+.score strong {
+  color: #5fa8d3;
+}
+
+@media screen and (min-width: 560px) {
+  #root {
+    margin: auto;
+  }
+  .score-placeholder {
+    flex-direction: row;
+  }
 }
